@@ -143,7 +143,7 @@ func anOutput(an *analizer) fnState {
                     }
 
                     // привязка к предыдущему слову
-                    case lexWord, lexNumber: {
+                    case lexWord, lexNumber, lexCloseTag, lexCloseBracket: {
                         lnbsp.Write(an.wr)
                         lmdash.Write(an.wr)
                         lspace.Write(an.wr)
@@ -154,6 +154,12 @@ func anOutput(an *analizer) fnState {
                         }
                         return anOutput
                     }
+                    // Во всех прочих случаях просто напечатать
+		    default: {
+		        current.Write(an.wr)
+		        return anOutput
+		    }
+                
                 }
             }
 

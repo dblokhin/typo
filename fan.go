@@ -299,6 +299,7 @@ func anOpenAmpersand(an *analizer) fnState {
         switch strings.ToLower(next1.data) {
             case "nbsp": {
                 an.dropN(3); // Удалить неразрывный пробел
+                an.insert(lspace)
                 return anPrepare
             }
             case "amp": {

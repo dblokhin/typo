@@ -436,7 +436,7 @@ func anStartSpace(an *analizer) fnState {
     return anPrepare
 }
 
-// anStart подготовка набора лексем (упаковка, опеределение чисел, сокращений, знаков т.п.)
+// anPrepare подготовка набора лексем (упаковка, опеределение чисел, сокращений, знаков т.п.)
 func anPrepare(an *analizer) fnState {
 
     current := an.get(0)
@@ -479,6 +479,19 @@ func anPrepare(an *analizer) fnState {
 
             an.peek()
             return anPrepare
+        }
+
+        // Пропустить все преобразования внутри тега
+        case lexOpenTag: {
+            for {
+                an.peek()
+                current = an.get(0)
+
+                if current.Is == lexCloseTag || current.Is == lexEof {
+                    return anPrepare
+                }
+            }
+
         }
 
         default: {

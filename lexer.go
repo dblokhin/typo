@@ -44,6 +44,8 @@ var (
     lndash = &token{"&ndash;", lexDefisominus}
     lamp = &token{"&amp;", lexWord}
     lsect = &token{"&sect;", lexSection}
+    lt = &token{"&lt;", lexLt}
+    gt = &token{"&gt;", lexGt}
     lhellip = &token{"&hellip;", lexHellip}
     lcopy = &token{"&copy;", lexWord}
     ltrade = &token{"&trade;", lexWord}
@@ -64,6 +66,8 @@ const (
     lexDefisominus
     lexPercent
     lexSection
+    lexLt
+    lexGt
     lexHellip
     lexNo
 

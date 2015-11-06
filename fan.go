@@ -338,6 +338,18 @@ func anOpenAmpersand(an *analizer) fnState {
                 an.peek()
                 return anPrepare
             }
+            case "lt": {
+                an.dropN(3);
+                an.insert(lt)
+                an.peek()
+                return anPrepare
+            }
+            case "gt": {
+                an.dropN(3);
+                an.insert(gt)
+                an.peek()
+                return anPrepare
+            }
 
             default: an.update(0, lamp)
         }

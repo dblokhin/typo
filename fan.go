@@ -297,12 +297,12 @@ func anOpenAmpersand(an *analizer) fnState {
 
     if next2.data == ";" && next1.Is == lexWord {
         switch strings.ToLower(next1.data) {
-            case "nbsp": {
+            case "nbsp", "#160": {
                 an.dropN(3); // Удалить неразрывный пробел
                 an.insert(lspace)
                 return anPrepare
             }
-            case "amp": {
+            case "amp", "#38": {
                 an.dropN(3);
                 an.insert(lamp)
                 an.peek()
@@ -320,10 +320,10 @@ func anOpenAmpersand(an *analizer) fnState {
                 an.peek()
                 return anPrepare
             }
-            case "quot", "raquo", "laquo": {
+            case "quot", "raquo", "laquo", "#187", "#171", "#34", "#39": {
                 an.dropN(3);
                 an.insert(lexquote)
-                an.peek()
+
                 return anPrepare
             }
             case "hellip": {
@@ -338,13 +338,13 @@ func anOpenAmpersand(an *analizer) fnState {
                 an.peek()
                 return anPrepare
             }
-            case "lt": {
+            case "lt", "#60": {
                 an.dropN(3);
                 an.insert(lt)
                 an.peek()
                 return anPrepare
             }
-            case "gt": {
+            case "gt", "#62": {
                 an.dropN(3);
                 an.insert(gt)
                 an.peek()

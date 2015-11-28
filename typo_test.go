@@ -64,8 +64,9 @@ var (
         {`<img src="/images/static.jpg" />Проект - антипроект.`, `<img src="/images/static.jpg" />Проект&nbsp;&mdash; антипроект.`},
         {"и&nbsp;кое-что", "и&nbsp;кое-что"},
         {"&lt;div&gt;Текст.&lt;/div&gt;", "&lt;div&gt;Текст.&lt;/div&gt;"},
-        {"", ""},
-        {"", ""},
+        {"&#34;text&#34;", "&laquo;text&raquo;"},
+        {"&#39;text&#39;", "&laquo;text&raquo;"},
+        {"&laquo;text&raquo;", "&laquo;text&raquo;"},
         {"", ""},
         {"", ""},
 
